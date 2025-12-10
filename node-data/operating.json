@@ -1,0 +1,93 @@
+[
+    {
+        "id": "a14dd061066f3128",
+        "type": "tab",
+        "label": "Flujo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "java_trigger",
+        "type": "inject",
+        "z": "a14dd061066f3128",
+        "name": "Lanzar Java",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "java_exec"
+            ]
+        ]
+    },
+    {
+        "id": "java_exec",
+        "type": "exec",
+        "z": "a14dd061066f3128",
+        "command": "java -jar /data/java/skinxpert-1.0-SNAPSHOT.jar",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Ejecutar JAR",
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "debug_stdout"
+            ],
+            [
+                "debug_stderr"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "debug_stdout",
+        "type": "debug",
+        "z": "a14dd061066f3128",
+        "name": "Salida Consola (OK)",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "debug_stderr",
+        "type": "debug",
+        "z": "a14dd061066f3128",
+        "name": "Errores Java",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 160,
+        "wires": []
+    }
+]
