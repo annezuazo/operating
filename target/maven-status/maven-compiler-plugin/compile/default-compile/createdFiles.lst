@@ -1,0 +1,11 @@
+edu\mondragon\os\monitors\skinxpert\AppointmentManager.class
+edu\mondragon\os\monitors\skinxpert\Main.class
+edu\mondragon\os\monitors\skinxpert\PhotoTask$Urgency.class
+edu\mondragon\os\monitors\skinxpert\DoctorService.class
+edu\mondragon\os\monitors\skinxpert\PriorityQueueSync.class
+edu\mondragon\os\monitors\skinxpert\IAClassifier.class
+edu\mondragon\os\monitors\skinxpert\BoundedBuffer.class
+edu\mondragon\os\monitors\skinxpert\PatientUploader.class
+edu\mondragon\os\monitors\skinxpert\PhotoTask.class
+edu\mondragon\os\monitors\skinxpert\DatabaseWriter.class
+edu\mondragon\os\monitors\skinxpert\UserStore.class

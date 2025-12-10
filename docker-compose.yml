@@ -2,19 +2,25 @@ version: '3.8'
 
 services:
   node-red:
+    # Busca la carpeta "./node-red" y lee el "Dockerfile" que hay dentro
     build: ./node-red
-    container_name: skinxpert_nodered
+    container_name: operating_nodered
     ports:
       - "1880:1880"
+    environment:
+      # Le decimos a Node-RED que el archivo de flujos se llama así
+      - FLOWS=operating.json
     volumes:
-      - nodered_data:/data
-      - ./skin.json:/data/flows.json
+      # CAMBIO 1: Mapeamos la carpeta entera 'node_data' a '/data'.
+      # Esto evita el error de bloqueo de Windows y guarda todo lo que hagas en esa carpeta.
+      - ./node-data:/data
+      
+      # CAMBIO 2: Mapeamos la carpeta target para que vea el .jar
+      - ./target:/data/java
     networks:
-      - skinxpert_network
+      - operating_network
 
-volumes:
-  nodered_data:
-
+# Ya no necesitamos el volumen 'nodered_data' porque usamos la carpeta local
 networks:
-  skinxpert_network:
+  operating_network:
     driver: bridge
