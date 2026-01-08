@@ -22,12 +22,12 @@ public class BoundedBuffer {
     }
 
     // Productor: paciente sube foto
-    public void add(PhotoTask t) throws InterruptedException {
+    public void add(PhotoTask t2) throws InterruptedException {
         spaces.acquire();        // bloquea si buffer lleno
         mutex.acquire();         // sección crítica
         try {
-            list.add(t);
-            System.out.println("[BUFFER ADD] " + t);
+            list.add(t2);
+            System.out.println("[BUFFER ADD] " + t2);
         } finally {
             mutex.release();
         }
